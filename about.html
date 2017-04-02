@@ -1,0 +1,144 @@
+---
+layout: page
+title: "About Me"
+description: "深入理解Java中."
+header-img: "img/about-bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+
+    <!--copied from markdown -->
+    <blockquote><p>
+    romennts@gmail.com | +86 1341 337 4540 | 广州, 中国</p></blockquote>
+
+    <p>Hey，我是<strong>谢佰臻</strong>，程序员 &amp; 后端开发，
+
+    <p>一些作品和开源项目，👉 戳  <a href="http://github.com/cncoder">Github</a>
+
+      <h5>教育经历：</h5>
+      <strong>本科：广州大学华软软件学院（2014-2018）</strong>，软件工程系
+
+      <h5>技能：</h5>
+      <p>主要使用Java开发网站</p>
+      <p></p>
+      <p>运维: 熟悉Docker, 在Linux使用NGINX 、 TOMCAT 、MYSQL做过中型网站发布</p>
+      <p>Others: HTTP, Computer System</p>
+      <p> 能进行熟练的英文读写，具有流利的口语交流能力</p>
+      <p>熟悉HTTP协议和Servlet工作机制，熟练使用spring、 springMVC、Struts2、hibernate等J2EE框架进行系统代码开发</p>
+      <p>熟悉使用Oracle DB，并对Oracle数据库优化和调优有深入理解</p>
+      <p>了解IoC、AOP等原理</p>
+      <p>了解并使用过：php, C++, C#, Android, hadoop, Git, JQuery, Node.js, Design Pattern</p>
+
+      <h5>EXPERIENCE：</h5>
+
+      <p>企业考勤系统后台（php）</p>
+      <p>并发Echo Server</p>
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+  <blockquote><p>
+  romennts@gmail.com | 1341 337 4540 | GUangzhou, China, 86</p></blockquote>
+
+    <p>Hi, Here is <strong>Xie Baizhen(谢佰臻)</strong>，you can call me nickname <strong>Romennts</strong>. I'm engineer &amp; designer who is loving to build software such as androidApp 👉 </a> and <a href="http://github.com/cncoder">Github 👉 </a>). </p>
+
+    <p>As a engineer, I work at Walster.</p>
+
+    <h5>EDUCATION</h5>
+    <strong>South-China Institute of Software Engineering（2014-2018）</strong>，Software Engineering
+
+    <h5>SKILLS</h5>
+    <p>Dev (intermediate): Java, C++, C#, Android, Design Pattern</p>
+    <p>Crawler (intermediate): Scrapy, Distributed Crawler</p>
+    <p>Ops (beginner): Docker, Linux</p>
+    <p>Others: HTTP, Computer System, Python, Service Discovery</p>
+    <p>Fluent English conversational level (able to discuss technical solutions in English)</p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
